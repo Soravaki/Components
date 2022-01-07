@@ -5,9 +5,7 @@ import java.util.*;
 public class Main {
     HashMap<String, String> recipes = new HashMap<>();
     TreeMap<String, String> recipesOrdered = new TreeMap<>();
-    ArrayList<String> recipeItemArrayList = new ArrayList<>();
-    ArrayList<String> items = new ArrayList<>();
-    ArrayList<Integer> nums = new ArrayList<>();
+
 
     public Main() throws FileNotFoundException {
         // Inputs the components.dat file
@@ -28,13 +26,12 @@ public class Main {
 
         // Runs through each recipe and outputs the items needed
         for (int i=0; i<num; i++){
-            recipeItemArrayList.clear();
-            items.clear();
-            nums.clear();
+            ArrayList<String> items = new ArrayList<>();
+            ArrayList<Integer> nums = new ArrayList<>();
 
             String recipeItems = recipes.get(sc.nextLine());
             String[] recipeItemArray = recipeItems.split( " ");
-            recipeItemArrayList.addAll(Arrays.asList(recipeItemArray));
+            ArrayList<String> recipeItemArrayList = new ArrayList<>(Arrays.asList(recipeItemArray));
 
             // Sets up double ArrayList to traverse
             for (int j=0; j<recipeItemArrayList.size(); j++){
